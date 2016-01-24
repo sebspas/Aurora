@@ -1,0 +1,464 @@
+/*==========  components.css  ==========*/
+/**
+* @content : Definition of reusable components
+* 			 specified for this website.
+* 
+* @tags : #header, .menu, .menu-logo-link, .menu-btn, .menu-list, .menu-link,
+*  		  .current, .loginbox, .slider, #main, .wrap, #footer
+**/
+/* Mon bordel css à réorganiser ;) */
+.of-yy {
+	min-height: 120px;
+	max-height: 550px;
+	overflow-y: scroll;
+	margin: 5px 0; 
+}
+.js-ecran {
+	height: 200px;
+	overflow-y: scroll;
+}
+progress[value] {
+	/* Reset the default appearance */
+	-webkit-appearance: none;
+	 -moz-appearance: none;
+	      appearance: none;
+
+	/* Get rid of default border in Firefox. */
+	border: none;
+
+	/* Dimensions */
+	width: 250px;
+	height: 20px;
+}
+.life-progress {
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+.cortana {
+	display: block;
+	width: 110px;
+	height: 110px;
+	padding-right: 15px;
+}
+.loader {
+	display: block;
+	position: fixed;
+	top : 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(190,190,190, 1);
+	z-index: 2;
+}
+
+
+.alpha {
+	display: block;
+	width: 200px;
+	position: absolute;
+	top: 0;
+	right: 0;
+
+}
+
+/*==========  BACKGROUND  ==========*/
+
+.bg{
+	display: block;
+	top: 0;
+	left: 0;
+	min-width: 100%;
+	min-height: 100%;
+	position: fixed;
+	z-index: -5;
+}
+
+#bg-login {
+	background: url('../../images/bg-test.jpg') no-repeat fixed 0% 0%;
+	background-size: cover;
+}
+
+
+#bg-home { 
+	background: url('../../images/home.jpg') no-repeat;
+	/*background: url('http://www.starcitizen.fr/wp-content/uploads/2014/11/Bridge-Paintover_final.jpg');*/
+	background-size: cover;
+}
+
+
+#bg-market {
+	background: url('../../images/market2.jpg') no-repeat;
+	background-size: cover;
+}
+
+
+#bg-hangar {
+	background: url('../../images/hangar.jpg') no-repeat;
+	background-size: cover;
+}
+
+
+#bg-profil {
+	background: url('../../images/cortana1.jpg') no-repeat;
+	background-size: cover;
+}
+
+#bg-combat {
+	background: url('../../images/battle.jpg') no-repeat;
+	background-size: cover;
+}
+
+/*==========  HEADER  ==========*/
+
+#header {
+	display: block;
+	width: 100%;
+	min-height: 20px;
+	padding-bottom: 25px;
+}
+
+
+	/*==========  MENU  ==========*/
+	.menu {
+		display: block;
+		position: fixed;
+		top: 0;
+		left: 0;
+		height: 50px;
+		width: 70%;
+		background: rgba(25,25,25, 0.7);
+		border-bottom: #36b8e2 solid 2px;
+		box-shadow: -6px 0 6px #252525; 
+		z-index: 2;
+	}
+
+	.menu:before {
+		content: "";
+		position: fixed;
+		
+		width: 50px;
+		height: 50px;
+		display: block;
+		background: rgba(25,25,25, 0.7);
+		top: 0px;
+		left: 70%;
+
+		z-index: 2;
+		border-bottom: #36b8e2 solid 2px;
+		box-shadow: 6px 0 6px #252525;
+		transform-origin: 0px 0px 0px;
+		transform: skewY(-48deg);
+	}
+
+
+
+
+	.menu-navigation {
+		display: block;
+	}
+
+	.menu-list {
+		display: inline-block;
+		height: auto;
+		margin-left: 15px;
+		margin-top: 45px;
+	}
+
+
+
+
+
+		/*==========  MENU-AVATAR  ==========*/
+		.menu-avatar {
+			display: inline-block;
+			width: 48px;
+			height: 48px;
+			float: right;
+			margin-top: 1px;
+			margin-left: 15px;
+			margin-right: 10px;
+		}
+
+		.menu-avatar img, .avatar img {
+			display: block;
+			width: 48px;
+			height: 48px;
+		}
+
+
+
+		/*==========  MENU-BOX  ==========*/
+
+		.menu-box {
+			display: none;
+			position: fixed;
+			top : 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(0,0,0, 1);
+			z-index: 1;
+		}
+
+		.menu-box ul {
+			display: block;
+			height: 100%;
+			margin-top: 55px;
+			overflow-y: scroll;
+		}
+
+		.menu-box li {
+			display: inline-block;
+			width: 50%;
+			height: 50%;
+			float: left;
+			margin: 0;
+
+			background-size: cover;
+			opacity: 0.4;
+			transition-duration: 0.6s;
+		}
+
+		.menu-box li:hover {
+			opacity: 0.9;
+		}
+
+		.menu-link {
+			display: inline-block;
+			width: 100%;
+			height: 100%;
+			color: #36b8e2;
+			font-family: Exo2;
+			font-size: 3em;
+			font-weight: bold;
+			text-align: center;
+			text-decoration: none;
+			line-height: 50vh;
+
+			transition-duration: 0.6s;
+		}
+
+		.menu-link:hover, a.current {
+			text-decoration: underline;
+			color: #f8f8f8;
+			text-shadow:  2px 2px #f8f8f8;
+		}
+
+		
+		.home {
+			background: url('../../images/home.jpg') no-repeat 0% 0%;
+
+		}
+
+		.profil {
+			background: url('../../images/cortana.jpg') no-repeat 0% 0%;
+		}
+
+		.market {
+			background: url('http://img.photobucket.com/albums/v193/Ruzhyo/StarCitizen2013-08-2923-21-07-37_zps58363270.png') no-repeat 0% 0%;
+		}
+
+
+		.hangar {
+			background: url('http://static.wcnews.com/newestshots/full/Carrier-Hangar.jpg') no-repeat 0% 0%;
+		}
+
+
+
+	
+
+/*==========  MAIN  ==========*/
+
+
+#main, .wrap {
+	display: block;
+	min-height: 600px;
+	width: 100%;
+	
+	/*margin: 0 auto;*/
+	padding-top: 60px;
+}
+
+
+		#login-box{
+			/*display: none;*/
+			opacity: 0;
+		}
+
+
+
+
+
+		/*==========  PROFIL-AVATAR  ==========*/
+		.profil-avatar {
+			display: inline-block;
+			width: 200px;
+			height: 200px;
+		}
+
+		.profil-avatar img {
+			display: block;
+			width: 200px;
+			height: 200px;
+			border-radius: 10px;
+		}
+
+
+		.liste-avatar {
+			display: block;
+			width: 100%;
+			height: 100px;
+		}
+
+
+		.avatar {
+			display: inline-block;
+			width: 35px;
+			height: 35px;
+			border-radius: 0px;
+		}
+
+
+		.avatar-com {
+			display: inline-block;
+			width: 60px;
+			height: 60px;
+			border-radius: 0;
+			margin: 15px;
+		}
+
+
+		.event-img {
+			display: inline-block;
+			width: 100px;
+			height: 101px;
+			
+		}
+
+		.event-img img {
+			display: block;
+			width: 100px;
+			height: 101px;
+
+		}
+
+
+		
+		
+		/*==========  FULLFRAME  ==========*/
+		.fullframe {
+			display: block;
+			position: fixed;
+			top : 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(0,0,0, 0.7);
+			z-index: 1;
+		}
+
+
+		
+
+
+		/*==========  LOGIN-FORM  ==========*/
+
+		.signup-form, .forgot-form {
+			display: none;
+		}
+
+
+
+		/*==========  MARKEt ==========*/
+
+
+
+		.menu-market {
+			display: block;
+			width: 100px;
+			margin-top: 35px;
+		}
+
+		.menu-market p {
+			/*margin: 10px;*/
+			padding: 10px;
+		}
+
+
+		#ship-option, #item-option {
+			overflow: hidden;
+		}
+
+
+/*==========  FOOTER  ==========*/
+#footer {
+	display: block;
+	background: #252525;
+	width: auto;
+	min-height: 320px;
+	padding-top: 35px;
+}
+
+
+.post {
+	display: block;
+	width: 60%;
+	margin: 20px 0 10px 0;
+}
+
+.post a {
+	text-decoration: none;
+	color: #f8f8f8;
+}
+
+.post-author {
+	display: inline-block;
+	font-size: 1.3em;
+	font-family: Exo2;
+	text-decoration: underline;
+}
+
+.post-date {
+	margin-top: 5px;
+	font-style: italic;
+	font-weight: bold;
+	font-family: Arial;
+}
+
+.post-content {
+	font-size: 1.1em;
+	font-family: Hallo;
+	text-align: justify;
+}
+
+
+
+.team {
+	margin-top: 120px;
+}
+
+
+.registered:hover {cursor: pointer;}
+
+.circle {
+	display: block;
+	width: 130px;
+	height: 130px;
+	border-radius: 100%;
+}
+
+.circle-span {
+	display: block;
+	width: 100%;
+	padding: 10px 0;
+	font-size: 1.5em;
+	line-height: 115px;
+
+}
+
+.copyright {
+	color: #f8f8f8;
+}
+
+.copyright a {
+	color: #f8f8f8;
+}

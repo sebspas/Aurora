@@ -1,0 +1,181 @@
+@media screen and (max-width: 480px) {
+
+	.wrap {
+		display: block;
+		margin: 0 auto;
+		width: 95%;
+	}
+
+	.menu {
+		height: 65px;
+	}
+
+
+	.menu-avatar {
+		margin-left: 5px;
+		margin-right: 2px;
+		margin-top: 8px;
+	}
+
+
+} /* Mobile < 999px */
+
+@media screen and (max-width: 999px) {
+
+	.menu {
+		width: 100%;
+	}
+
+	.menu:before {display: none;}
+
+
+	.logo-link img {
+		display: block;
+		width: auto;
+		height: 85px;
+		margin-bottom: 6px;
+	}
+
+
+	.js-menu-btn {
+		display: inline-block;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		margin-left: 5px;
+		width: 40px;
+		height: 40px;
+		background: url('../../images/menu-btn.png') no-repeat 0% 4px;
+		background-size: 40px;
+	}
+
+	.js-menu-btn:hover {
+		cursor: pointer;
+	}
+
+
+	.navigation-ul {display: block; float: none;}
+	
+	.menu-list {
+		display: block;
+		width: 100%;
+	}
+
+	.menu-link {
+		display: block;
+		width: auto;
+		color: #252525;
+		text-shadow: none;
+		border-radius: 0;
+	}
+
+	.menu-link:hover, .current {color: #0099ee;}
+
+
+
+	.log {
+		display: inline-block;
+		position: absolute;
+		top: 20px;
+		right: 75px;
+	}
+
+
+	.sections {
+		display: none;
+		width: auto;
+		height: auto;
+		position: relative;
+		box-shadow: none;
+		background: none;
+		border-radius: 0;
+		padding: 10px;
+		margin-top: 12px;
+		z-index: 5;
+	}
+
+
+	/*==========  LOGINBOX  ==========*/
+		.loginbox {
+			display: none;
+			width: 100%;
+			height: auto;
+			position: absolute;
+			top: 100px;
+			left: 0;
+			box-shadow: 0px 5px 5px #c9c9c9;
+			background: #f8f8f8;
+			padding: 10px;
+			margin-top: 12px;
+
+			z-index: 5;
+		}
+
+
+	#main {
+		display: block;
+		width: 100%;
+		margin: 0 auto;
+	}
+	
+	#bg-main video{display: none;}
+	
+} /* Mobile < 999px */
+
+@media screen and (min-width: 999px) {
+
+	.log {
+		position: absolute;
+		display: inline-block;
+		top: 40px;
+		right: 20%;
+		z-index: 6;
+	}
+
+
+	/*==========  SECTIONS  ==========*/
+		.sections {
+			display: none;
+			width: 250px;
+			height: auto;
+			position: absolute;
+			left: 25%;
+			box-shadow: 0px 2px 4px #b9b9b9;
+			background: rgba(248,248,248, 0.85);
+			border-radius: 10px;
+			padding: 10px;
+			margin-top: 12px;
+
+			z-index: 5;
+		}
+
+	
+	/*==========  LOGINBOX  ==========*/
+		.loginbox {
+			display: none;
+			width: 250px;
+			height: auto;
+			position: absolute;
+			right: 15%;
+			box-shadow: 0px 2px 4px #b9b9b9;
+			background: rgba(248,248,248, 0.85);
+			border-radius: 15px;
+			padding: 10px;
+			margin-top: 12px;
+
+			z-index: 5;
+		}
+
+} /* Mobile > 999px */
+
+@media screen and (max-width: 1260px) {
+	/*.menu {width: auto;}*/
+
+	/*#main{width: 90%;}*/
+	
+	.wrap {width: 80%; margin: 0 auto;}
+
+	.post {width: 100%;}
+
+
+} /* Mobile < 1260px */
