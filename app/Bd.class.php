@@ -34,6 +34,23 @@ class BD {
     }
 
     /**
+     * Function checkPassword()
+     * Vérifie que password entré par l'utilisateur correspond au password hashé en BD concernant cet utilisateur.
+     *
+     * @param String $password     : mot de passe à tester
+     * @param String $salt         : salt de l'utilisateur enregistré en BD ($user->salt)
+     * @param String $userPassword : mot de passe hashé en BD de l'utilisateur ($user->password)
+     *
+     * @return bool
+     */
+    function checkPassword ($password, $salt, $userPassword) {
+
+        $sha512Password = hash ("sha512", $password . $salt);
+
+        return $sha512Password === $userPassword;
+    }
+
+    /**
      * Function getUsedTable()
      *
      * Permet de connaitre la table sur laquel on travail
@@ -324,10 +341,14 @@ class BD {
      */
     function addUser($Pseudo, $email, $Pass) {
         $req = self::$db->prepare("INSERT INTO `user`
-            (pseudo, email, passwd, avatar)
-             VALUES (?,?,?,?)");
-        $Pass = sha1($Pass);
-        $req->execute(array($Pseudo,$email,$Pass,'http://51.255.41.18/Aurora/asset/images/avatar/default.png'));
+            (pseudo, email, passwd, salt, avatar)
+             VALUES (?,?,?,?, ?)");
+
+
+        $salt = hash("sha256", uniqid("dfvghbjn", true));
+        $Pass = hash ("sha512", $Pass . $salt);
+
+        $req->execute(array($Pseudo,$email,$Pass, $salt,'http://51.255.41.18/Aurora/asset/images/avatar/default.png'));
         $req->closeCursor();
     } // addUser()
 

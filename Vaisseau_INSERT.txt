@@ -1,0 +1,9 @@
+INSERT INTO `Aurora`.`spaceship` (`idspaceship`, `nom`, `desc`, `pv`, `attaque`, `defense`, `type`, `image`, `prix`, `xp`, `nextlevel`) VALUES (NULL, 'Leo', 'Leo.', '300', '25', '5', 'Léger', 'leo.png', '750', '0', '100');
+
+INSERT INTO `Aurora`.`spaceship` (`idspaceship`, `nom`, `desc`, `pv`, `attaque`, `defense`, `type`, `image`, `prix`, `xp`, `nextlevel`) VALUES (NULL, 'Heliox', 'Heliox', '275', '30', '3', 'Leger', 'helios.png', '750', '0', '100');
+
+
+INSERT INTO `Aurora`.`mission` (`idmission`, `nom`, `niveau`, `or`, `xp`, `desc`, `image`) VALUES (NULL, 'Le commencement', '1', '50', '50', 'La première mission.', 'mission.png');
+
+INSERT INTO `Aurora`.`IA` (`idIA`, `nom`, `pv`, `attaque`, `defense`, `image`, `type`) VALUES (NULL, 'Méchant', '100', '15', '1', 'b1.png', 'Leger');
+INSERT INTO `Aurora`.`ennemi` (`idIA`, `idmission`) VALUES ('1', '1');

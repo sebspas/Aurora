@@ -16,7 +16,7 @@
 	if ($BD->isInDb('pseudo',$pseudo)) {
 		$user = $BD->select('pseudo',$pseudo);
 
-		if ($user->passwd == sha1($password)) {
+		if ($BD->checkPassword($password, $user->salt, $user->passwd)) {
 			$BD->setUsedTable('connecté');
 			if (!$BD->isInDb('iduser',$user->iduser)) {
 				$BD->addCo($user->iduser);
