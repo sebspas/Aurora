@@ -11,7 +11,7 @@ $(document).ready(function() {
 
 	function OnSuccess(result) {
 		if (result == false) {
-			window.location = "http://js.holobox.fr/app/model/logout.php";
+			window.location = "http://51.255.41.18/app/model/logout.php";
 		}
 	}
 

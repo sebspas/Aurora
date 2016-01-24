@@ -232,20 +232,20 @@ $(document).ready(function() {
     function OnSuccess(result) {
             console.log(result);
             if (result == "Sign") {
-                window.location = "http://js.holobox.fr/m/index.php?page=login";
+                window.location = "http://51.255.41.18/m/index.php?page=login";
             }
             if (result.type == "Login") {
                 if (result.error != "Ok") {
                     alert(result.error);
                 } else {
-                    window.location = "http://js.holobox.fr/m/index.php?page=home";
+                    window.location = "http://51.255.41.18/m/index.php?page=home";
                 }
             }
             if (result.type == "Forgot") {
                 if (result.msg != '') {
                     alert(result.msg);
                 } else {
-                    window.location = "http://js.holobox.fr/m/index.php?page=home";
+                    window.location = "http://51.255.41.18/m/index.php?page=home";
                 }
             }
         } // OnSuccess()

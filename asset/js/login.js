@@ -265,14 +265,14 @@ $(document).ready(function() {
     function OnSuccess(result) {
             console.log(result);
             if (result == "Sign") {
-                window.location = "http://js.holobox.fr/index.php?page=login";
+                window.location = "http://51.255.41.18/index.php?page=login";
             }
             if (result.type == "Login") {
                 if (result.error != "Ok") {
                     alert(result.error);
                 } else {
                     window.location = 
-                        "http://js.holobox.fr/index.php?page=home";
+                        "http://51.255.41.18/index.php?page=home";
                 }
             }
             if (result.type == "Forgot") {
@@ -280,7 +280,7 @@ $(document).ready(function() {
                     alert(result.msg);
                 } else {
                     window.location = 
-                        "http://js.holobox.fr/index.php?page=home";
+                        "http://51.255.41.18/index.php?page=home";
                 }
             }
         } // OnSuccess()

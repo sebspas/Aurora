@@ -1,13 +1,13 @@
 $(document).ready(function() {
 	ress = {
-		images: '../../asset/images/',
-		loader: '../../asset/traitement/loader/',
-		vaisseaux: '../../asset/images/vaisseaux/',
-		ennemies: '../../asset/images/vaisseaux/bad/',
-		model: '../../app/model/',
-		traitement: '../../asset/traitement/',
-		items: '../../asset/images/items/',
-		profils: '../../asset/images/avatar/'
+		images: './asset/images/',
+		loader: './asset/traitement/loader/',
+		vaisseaux: './asset/images/vaisseaux/',
+		ennemies: './asset/images/vaisseaux/bad/',
+		model: './app/model/',
+		traitement: './asset/traitement/',
+		items: './asset/images/items/',
+		profils: './asset/images/avatar/'
 	};
 
 	// boolean pour le chargement et le changement de page 

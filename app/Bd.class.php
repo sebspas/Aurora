@@ -327,7 +327,7 @@ class BD {
             (pseudo, email, passwd, avatar)
              VALUES (?,?,?,?)");
         $Pass = sha1($Pass);
-        $req->execute(array($Pseudo,$email,$Pass,'http://js.holobox.fr/asset/images/avatar/default.png'));
+        $req->execute(array($Pseudo,$email,$Pass,'http://51.255.41.18/asset/images/avatar/default.png'));
         $req->closeCursor();
     } // addUser()
 

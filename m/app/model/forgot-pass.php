@@ -23,7 +23,7 @@
 
 	updateTok($_POST['email'],$token);
 
-	$link = "http://www.js.holobox.fr/index.php?page=pass&mail=" . $_POST['email'] . "&tok=" . $token;
+	$link = "http://51.255.41.18/index.php?page=pass&mail=" . $_POST['email'] . "&tok=" . $token;
 
 	mail($email, "Mot de passe changement !",$link);
 

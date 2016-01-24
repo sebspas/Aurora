@@ -13,5 +13,5 @@
 	{setcookie(session_name(),'',time()-4200,'/');}
 
 	session_destroy();
-	header('Location: http://js.holobox.fr/m/');
+	header('Location: http://51.255.41.18/m/');
 ?>
