@@ -57,49 +57,49 @@ img {
 
 /* icon-energy */
 .icon-energy {
-	background: url('http://51.255.41.18/asset/images/energy.png') no-repeat 0% 0%;
+	background: url('http://51.255.41.18/Aurora/asset/images/energy.png') no-repeat 0% 0%;
 	background-size: 100%;
 }
 
 
 /* icon-coin */
 .icon-coin {
-	background: url('http://51.255.41.18/asset/images/coin.png') no-repeat 0% 0%;
+	background: url('http://51.255.41.18/Aurora/asset/images/coin.png') no-repeat 0% 0%;
 	background-size: 100%;
 }
 
 
 /* icon-xp */
 .icon-xp {
-	background: url('http://51.255.41.18/asset/images/xp.png') no-repeat 0% 0%;
+	background: url('http://51.255.41.18/Aurora/asset/images/xp.png') no-repeat 0% 0%;
 	background-size: 100%;
 }
 
 
 /* icon-pv */
 .icon-pv {
-	background: url('http://51.255.41.18/asset/images/pv.png') no-repeat 0% 0%;
+	background: url('http://51.255.41.18/Aurora/asset/images/pv.png') no-repeat 0% 0%;
 	background-size: 100%;
 }
 
 
 /* icon-defense */
 .icon-defense {
-	background: url('http://51.255.41.18/asset/images/defense.png') no-repeat 0% 0%;
+	background: url('http://51.255.41.18/Aurora/asset/images/defense.png') no-repeat 0% 0%;
 	background-size: 100%;
 }
 
 
 /* icon-attaque */
 .icon-attaque {
-	background: url('http://51.255.41.18/asset/images/attaque.png') no-repeat 0% 0%;
+	background: url('http://51.255.41.18/Aurora/asset/images/attaque.png') no-repeat 0% 0%;
 	background-size: 100%;
 }
 
 
 
 .ui-icon-energy:after {
-	background-image: url("http://51.255.41.18/asset/images/energy.png");
+	background-image: url("http://51.255.41.18/Aurora/asset/images/energy.png");
 	background-size: cover;
 }
 

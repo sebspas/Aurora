@@ -327,16 +327,16 @@ class BD {
             (pseudo, email, passwd, avatar)
              VALUES (?,?,?,?)");
         $Pass = sha1($Pass);
-        $req->execute(array($Pseudo,$email,$Pass,'http://51.255.41.18/asset/images/avatar/default.png'));
+        $req->execute(array($Pseudo,$email,$Pass,'http://51.255.41.18/Aurora/asset/images/avatar/default.png'));
         $req->closeCursor();
     } // addUser()
 
 
     function addCo($iduser) {
         $req = self::$db->prepare("INSERT INTO `connecté` 
-            (iduser, lastco)
+            (lastco, iduser)
             VALUES (?,?)");
-        $req->execute(array($iduser,time()));
+        $req->execute(array(date("Y-m-d H:i:s",time()), $iduser));
 
         $req->closeCursor();
     }

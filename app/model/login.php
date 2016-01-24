@@ -37,11 +37,11 @@
 			
 		}
 		else {
-			$error = "Mot de passe incorecte !";
+			$error = "Mot de passe incorect !";
 		}
 	}
 	else {
-		$error = "Pseudo inconnue !";
+		$error = "Pseudo inconnu !";
 	}
 	$d['type'] = "Login";
 	$d['error'] = $error;
