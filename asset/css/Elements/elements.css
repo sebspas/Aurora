@@ -496,6 +496,7 @@ object {
 	display: inline-block;
 	min-height: 100px;
 	box-shadow: 0px 2px 4px #c3c3c3 ;
+	padding: 15px;
 }
 
 .frame0 { border: none; box-shadow: none;}
@@ -507,6 +508,7 @@ object {
 	box-shadow: 0 0 6px #252525;
 	margin: 25px 10px;
 	margin-left: 0;
+	min-height: 400px;
 }
 
 .frame01 {
@@ -518,6 +520,7 @@ object {
 	border: #36b8e2 solid 2px;
 	border-radius: 15px 0 15px 0;
 	box-shadow: 0 0 6px #252525;
+	padding: 0 10px;
 }
 
 .frame01 img {
@@ -568,12 +571,12 @@ object {
 	}
 
 .frame-content {
-	display: block;
+	display: inline-block;
 	width: 100%;
 	min-height: 25px;
-	padding: 0 10px;
+	/*padding: 0 10px;*/
 	margin: 15px 0;
-	box-sizing: border-box;
+	/*box-sizing: border-box;*/
 }
 
 

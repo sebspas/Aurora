@@ -311,39 +311,56 @@ function LancementMission(mission) {
 		.attr('class', 'fullframe')
 		.append(
 			$('<div>')
-			.attr('class', 'frame1 white cols6 js-center')
+			.attr('class', 'frame1 white cols6 js-center frame-mission')
 			.append(
 				$('<div>')
-				.attr('class', 'frame-content js-frame-m of-yy')
+				.attr('class', 'frame-content js-frame-m')
 				.append(
+                    $('<br>'),
+                    $('<div>')
+                        .attr('class', 'icon3 left icon-rank' + mission.niveau),
+                    $('<h2>')
+                        .attr('class', 'title1 c-white')
+                        .html(mission.nom),
+                    $('<div>')
+                        .attr('class', 'left padd-10')
+                        .append(
+                            $('<img>')
+                                .attr({
+                                    'src' :  window.ress.mission + mission.image,
+                                    width : '400px'
+                                })
+                        ),
 					$('<div>')
-					.attr('class', 'icon3 left icon-rank' + mission.niveau),
-					$('<h2>')
-					.attr('class', 'title1')
-					.html(mission.nom),
-					$('<div>')
-					.attr('class', 'line')
-					.append(
-						$('<p>')
-						.html(mission.desc)),
-					$('<div>')
-					.attr('class', 'icon icon-energy'),
-					$('<div>')
-					.attr('class', 'icon-content2')
-					.html(mission.energie + ' %'),
-					$('<div>')
-					.attr('class', 'icon icon-coin'),
-					$('<div>')
-					.attr('class', 'icon-content2')
-					.html(mission.or),
-					$('<div>')
-					.attr('class', 'icon icon-xp'),
-					$('<div>')
-					.attr('class', 'icon-content2')
-					.html(mission.xp + ' XP'),
-					$('<div>')
-					.attr('class', 'line0')
-					.append(bouton_lancement))));
+						.attr('class', 'g1'),
+                    $('<div>')
+                        .attr('class', 'cols4 rigth c-white')
+                        .append(
+                            $('<div>')
+                                .attr('class', 'line c-white')
+                                .append(
+                                    $('<p>')
+                                        .html(mission.desc)),
+                            $('<div>')
+                                .attr('class', 'icon icon-energy'),
+                            $('<div>')
+                                .attr('class', 'icon-content2')
+                                .html(mission.energie + ' %'),
+                            $('<div>')
+                                .attr('class', 'icon icon-coin'),
+                            $('<div>')
+                                .attr('class', 'icon-content2')
+                                .html(mission.or),
+                            $('<div>')
+                                .attr('class', 'icon icon-xp'),
+                            $('<div>')
+                                .attr('class', 'icon-content2')
+                                .html(mission.xp + ' XP'),
+                            $('<div>')
+                                .attr('class', 'line0')
+                                .append(bouton_lancement)
+                        )
+					)));
 }
 var listeShip;
 var currentId = 0;
@@ -360,56 +377,61 @@ function chargementSelecteurVaisseau() {
 		$(this).empty();
 		$(this).append(
 			$('<h2>')
-			.attr('class', 'title1')
+			.attr('class', 'title1 c-white padd-10')
 			.html('Sélectionnez votre vaisseau :'));
 		$(this).append(
-			$('<a>')
-			.attr({
-				'class': 'btn2 green3 left js-prev ',
-				href: '#'
-			})
-			.html('Precedent')
-			.click(function() {
-				var prev = currentId - 1;
-				if (prev < 0) {
-					prev = listeShip.length - 1;
-				}
-				$('.contenu').fadeOut(500, function() {
-					$(this).empty();
-					$(this).append(vaisseau_mission(listeShip[prev]));
-					$(this).fadeIn(500);
-					currentId = prev;
-				});
-			}));
+            $('<div>')
+                .attr('class', 'cols2 padd-10')
+                .append(
+                    $('<a>')
+                        .attr({
+                            'class': 'btn2 blue2 left js-prev ',
+                            href: '#'
+                        })
+                        .html('Precedent')
+                        .click(function() {
+                            var prev = currentId - 1;
+                            if (prev < 0) {
+                                prev = listeShip.length - 1;
+                            }
+                            $('.contenu').fadeOut(500, function() {
+                                $(this).empty();
+                                $(this).append(vaisseau_mission(listeShip[prev]));
+                                $(this).fadeIn(500);
+                                currentId = prev;
+                            });
+                        }),
+                    $('<a>')
+                        .attr({
+                            'class': 'btn2 blue2 right js-next',
+                            href: '#'
+                        })
+                        .html('Suivant')
+                        .click(function() {
+                            var next = currentId + 1;
+                            if (next == listeShip.length) {
+                                next = 0;
+                            }
+                            $('.contenu').fadeOut(500, function() {
+                                $(this).empty();
+                                $(this).append(vaisseau_mission(listeShip[next]));
+                                $(this).fadeIn(500);
+                                currentId = next;
+                            });
+                        })
+                )
+        );
+
 		$(this).append(
 			$('<div>')
 			.attr('class', 'contenu center cols8')
 			.append(vaisseau_mission(listeShip[currentId])));
 		$(this).append(
-			$('<a>')
-			.attr({
-				'class': 'btn2 green3 right js-next',
-				href: '#'
-			})
-			.html('Suivant')
-			.click(function() {
-				var next = currentId + 1;
-				if (next == listeShip.length) {
-					next = 0;
-				}
-				$('.contenu').fadeOut(500, function() {
-					$(this).empty();
-					$(this).append(vaisseau_mission(listeShip[next]));
-					$(this).fadeIn(500);
-					currentId = next;
-				});
-			}));
-		$(this).append(
 			$('<div>')
-			.attr('class', 'line2')
+			.attr('class', 'padd-10')
 			.append(
 				$('<a>')
-				.attr('class', 'btn2 green3 center')
+				.attr('class', 'btn2 blue3 right')
 				.html('Valider')
 				.click(function() {
 					selected_ship = listeShip[currentId];
@@ -426,7 +448,7 @@ function vaisseau_mission(vaisseau) {
 		type = 'Moyen';
 	}
 	return $('<div>')
-		.attr('class', 'frame0 t-black c-white')
+		.attr('class', 't-black c-white frame0')
 		.append(
 			$('<div >')
 			.attr('class', 'frame-content')
@@ -439,7 +461,7 @@ function vaisseau_mission(vaisseau) {
 					.html(vaisseau.nom + ' - ' + type + 
 						' - Niv ' + vaisseau.level)),
 				$('<div>')
-				.attr('class', 'row')
+				.attr('class', 'row frame-ship left cols5')
 				.append(
 					$('<img>')
 					.attr({
@@ -447,12 +469,12 @@ function vaisseau_mission(vaisseau) {
 						alt: ''
 					})),
 				$('<div>')
-				.attr('class', 'line3')
+				.attr('class', 'right cols5')
 				.append(
 					$('<p>')
 					.html(vaisseau.desc)),
 				$('<div>')
-				.attr('class', 'line')
+				.attr('class', 'line center')
 				.append(
 					$('<div>')
 					.attr('class', 'icon icon-pv'),

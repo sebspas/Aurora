@@ -7,7 +7,8 @@ $(document).ready(function() {
 		model: './app/model/',
 		traitement: './asset/traitement/',
 		items: './asset/images/items/',
-		profils: './asset/images/avatar/'
+		profils: './asset/images/avatar/',
+		mission: './asset/images/missions/'
 	};
 
 	// boolean pour le chargement et le changement de page 

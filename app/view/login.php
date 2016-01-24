@@ -6,7 +6,7 @@
 <div class="g4"></div>
 <div id="login-box t-white" class="cols4">
 	<!--<h1 class="title3">AURORA</h1>-->
-	<div class="row frame1 t-black">
+	<div class="row frame-login t-black">
 		<div class="frame-content">
 			<form class="login-form" method="GET" action="<?= Config::$path['model'] ?>login.php" class="center">
 				<div class="field">
