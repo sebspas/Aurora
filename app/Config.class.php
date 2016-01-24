@@ -4,9 +4,9 @@ class Config {
     public static $debug = true;
 
     public static $dbInfo = array(
-        'driver' => 'mysql:host=127.0.0.1;dbname=JS',
+        'driver' => 'mysql:host=127.0.0.1;dbname=Aurora',
         'username' => 'root',
-        'password' => 'aqwEDCtgb7'
+        'password' => 'aqwEDCtgb7;'
     );
 
     public static $path = array(
