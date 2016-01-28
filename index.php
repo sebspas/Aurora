@@ -1,4 +1,5 @@
 <?php
+//session_name("Aurora");
 session_start();
 
 require_once('app/Config.class.php');
@@ -9,6 +10,7 @@ if(Config::$debug) {
 }
 require_once('app/Bd.class.php');
 require_once Config::$path['header'];
+
 if (!empty($_GET['page']) && is_file(Config::$path['controller'].$_GET['page'].'.php'))
 	require_once Config::$path['controller'].$_GET['page'].'.php';
 else

@@ -1,7 +1,11 @@
 	</div><!-- #main -->
-
+    <?php
+    //require_once ("template_html.php");
+    ?>
 	<span class="scrollT"></span>
 	<script type="text/javascript" src="<?php echo Config::$path['js'] ?>jquery.min.js"></script>
+    <!--<script type="text/javascript" src="<?php echo Config::$path['js'] ?>jquery.loadTemplate-1.4.4.min.js"></script>-->
+    <script type="text/javascript" src="<?php echo Config::$path['js'] ?>mustache.min.js"></script>
     <script type="text/javascript" src="<?php echo Config::$path['js'] ?>fn.scrollT.js"></script>
     <script type="text/javascript" src="<?php echo Config::$path['js'] ?>fn.center.js"></script> 
     <script type="text/javascript" src="<?php echo Config::$path['js'] ?>menu.js"></script>     

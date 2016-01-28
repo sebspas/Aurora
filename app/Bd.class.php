@@ -355,9 +355,10 @@ class BD {
 
     function addCo($iduser) {
         $req = self::$db->prepare("INSERT INTO `connecté` 
-            (lastco, iduser)
-            VALUES (?,?)");
-        $req->execute(array(date("Y-m-d H:i:s",time()), $iduser));
+            (iduser, lastco)
+            VALUES (? , CURRENT_TIMESTAMP)");
+
+        $req->execute(array($iduser));
 
         $req->closeCursor();
     }

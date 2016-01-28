@@ -489,3 +489,26 @@ progress[value] {
 	padding-left: 10px;
 
 }
+
+.text-mission {
+	min-height: 100px;
+}
+
+.ship-img {
+    width: 50px;
+    heigth: 50px;
+}
+
+.js-next {
+	background-image: url("http://51.255.41.18/Aurora/asset/images/next.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 60px;
+}
+
+.js-prev {
+	background-image: url("http://51.255.41.18/Aurora/asset/images/next.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 60px;
+}

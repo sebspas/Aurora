@@ -20,7 +20,7 @@ function ChargementProfilPage() {
 				$('.main').append(infos(profil[0]));
 				$('.main').append(
 					$('<div>')
-					.attr('class', 'g2'));
+					.attr('class', 'g1'));
 
 				left_block.append(changement_avatar());
 				classementJoueurs();

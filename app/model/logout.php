@@ -13,5 +13,5 @@
 	{setcookie(session_name(),'',time()-4200,'/');}
 
 	session_destroy();
-	header('Location: /Aurora/index.php');
+	header('Location: /Aurora/index.php?page=login');
 ?>

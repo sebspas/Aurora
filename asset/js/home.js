@@ -152,6 +152,20 @@ function chargementHomepage() {
 }
 
 function home_ship(vaisseau) {
+	var template = $('#vaisseau-home').html();
+	Mustache.parse(template);   // optional, speeds up future uses
+	var rendered = Mustache.render(template,
+		{nom_vaisseau : vaisseau.nom + '- Niv ' + vaisseau.level,
+			vaisseau_image : window.ress.vaisseaux + vaisseau.image,
+			vaisseau_pv : vaisseau.pv,
+            vaisseau_defense : vaisseau.defense + ' DEF',
+            vaisseau_attaque : vaisseau.attaque + ' ATK',
+            vaisseau_xp : vaisseau.xp + '/' + vaisseau.nextlevel + ' Xp'
+		}
+	);
+	$('.main').html(rendered);
+
+    /*
 		$('.main').append(
 			$('<div>')
 			.attr('class', 'cols5')
@@ -190,9 +204,11 @@ function home_ship(vaisseau) {
 						$('<div>')
 						.attr('class', 'icon-content')
 						.html(vaisseau.xp + '/' + vaisseau.nextlevel + ' Xp')
-					))));
+					))));*/
 
 	} // home_ship()
+
+var ListeMissionsContent = new Array();
 
 function ListeMissions(ListeMissions) {
 	var missions = $('<div>')
@@ -219,8 +235,39 @@ function ListeMissions(ListeMissions) {
 	$('.main').append(liste);
 }
 
+function launch(mission_id) {
+    var mission = ListeMissionsContent[mission_id];
+
+    if (window.missionLaunch) {
+        return;
+    } else {
+        window.missionLaunch = true;
+        // Gestion lancement mission
+        $('.main').append(LancementMission(mission));
+        $('.js-to-menu-box').removeClass('icon-menu');
+        $('.js-to-menu-box').addClass('icon-cancel');
+        $('.js-center').center();
+    }
+}
+
 function Mission(mission) {
-		var divMission =
+
+    ListeMissionsContent[mission.idmission] = mission;
+    //alert(ListeMissionsContent[mission.idmission]);
+    var template = $('#mission').html();
+    Mustache.parse(template);   // optional, speeds up future uses
+    var rendered = Mustache.render(template,
+        {
+            mission_level :  + mission.niveau,
+            mission_nom : mission.nom,
+            mission_energy : mission.energie + ' %',
+            mission_or : mission.or + ' $',
+            mission_xp : mission.xp + ' XP',
+            mission_launch : mission.idmission
+        }
+    );
+
+		/*var divMission =
 			$('<div>')
 			.attr('class', 'row')
 			.append(
@@ -265,8 +312,8 @@ function Mission(mission) {
 				$('<div>')
 				.attr('class', 'line'),
 				$('<hr>')
-			);
-		return divMission;
+			);*/
+		return rendered;
 	}
 	/*****************************************************
 			Gestion du chargement du combat
@@ -277,37 +324,49 @@ var selected_ship;
 selected_equipement1 = null;
 selected_equipement2 = null;
 
+function launch_mission_click(mission_id) {
+    var mission = ListeMissionsContent[mission_id];
+
+    $.ajax({
+        url: window.ress.loader + 'load-home-energy.php',
+        success: function(data) {
+            energy = data;
+            $('.js-energie').html(energy + ' %');
+        }
+    });
+
+    if (energy - mission.energie >= 0) {
+            // rajouter le changement de couleur au clique
+
+            selected_mission = mission;
+            // chargement selecteur vaisseau et equipement
+            chargementSelecteurVaisseau();
+    }  else {
+        alert('Vous n\'avez pas assez d\'énergie :\'(');
+    }
+}
+
 function LancementMission(mission) {
-	var bouton_lancement = $('<a>')
-		.attr({
-			'href': '#',
-			'class': 'btn2 red3 right'
-		})
-		.html('Lancer')
-		.click(function(event) {
-			alert('Vous n\'avez pas assez d\'énergie :\'(');
-		});
-	$.ajax({
-		url: window.ress.loader + 'load-home-energy.php',
-		success: function(data) {
-			energy = data;
-			$('.js-energie').html(energy + ' %');
-		}
-	})
-	if (energy - mission.energie >= 0) {
-		bouton_lancement = $('<a>')
-			.attr({
-				'href': '#',
-				'class': mission.idmission + ' btn2 blue3 right'
-			})
-			.html('Lancer')
-			.click(function() {
-				selected_mission = mission;
-				// chargement selecteur vaisseau et equipement
-				chargementSelecteurVaisseau();
-			});
-	}
-	return $('<div>')
+
+    //ListeMissionsContent[mission.idmission] = mission;
+    //alert(ListeMissionsContent[mission.idmission]);
+    var template = $('#mission_lancement').html();
+    Mustache.parse(template);   // optional, speeds up future uses
+    var rendered = Mustache.render(template,
+        {
+            mission_image : window.ress.mission + mission.image,
+            mission_desc : mission.desc,
+            mission_level : mission.niveau,
+            mission_nom : mission.nom,
+            mission_energy : mission.energie + ' %',
+            mission_or : mission.or + ' $',
+            mission_xp : mission.xp + ' XP',
+            mission_bouton : mission.idmission
+        }
+    );
+
+    return rendered;
+	/*return $('<div>')
 		.attr('class', 'fullframe')
 		.append(
 			$('<div>')
@@ -360,7 +419,7 @@ function LancementMission(mission) {
                                 .attr('class', 'line0')
                                 .append(bouton_lancement)
                         )
-					)));
+					)));*/
 }
 var listeShip;
 var currentId = 0;
@@ -380,15 +439,12 @@ function chargementSelecteurVaisseau() {
 			.attr('class', 'title1 c-white padd-10')
 			.html('Sélectionnez votre vaisseau :'));
 		$(this).append(
-            $('<div>')
-                .attr('class', 'cols2 padd-10')
-                .append(
                     $('<a>')
                         .attr({
-                            'class': 'btn2 blue2 left js-prev ',
+                            'class': 'btn2 left js-prev ',
                             href: '#'
                         })
-                        .html('Precedent')
+						.html('Précedent')
                         .click(function() {
                             var prev = currentId - 1;
                             if (prev < 0) {
@@ -403,7 +459,7 @@ function chargementSelecteurVaisseau() {
                         }),
                     $('<a>')
                         .attr({
-                            'class': 'btn2 blue2 right js-next',
+                            'class': 'btn2 right js-next',
                             href: '#'
                         })
                         .html('Suivant')
@@ -419,8 +475,7 @@ function chargementSelecteurVaisseau() {
                                 currentId = next;
                             });
                         })
-                )
-        );
+                );
 
 		$(this).append(
 			$('<div>')
@@ -443,11 +498,27 @@ function chargementSelecteurVaisseau() {
 }
 
 function vaisseau_mission(vaisseau) {
-	var type = 'Leger';
+	/*var type = 'Leger';
 	if (vaisseau.type == 2) {
 		type = 'Moyen';
 	}
-	return $('<div>')
+	*/
+    var template = $('#vaisseau-selection-mission').html();
+    Mustache.parse(template);   // optional, speeds up future uses
+    var rendered = Mustache.render(template,
+        {
+            nom_vaisseau : vaisseau.nom + '- Niv ' + vaisseau.level,
+            vaisseau_image : window.ress.vaisseaux + vaisseau.image,
+            vaisseau_pv : vaisseau.pv,
+            vaisseau_defense : vaisseau.defense + ' DEF',
+            vaisseau_attaque : vaisseau.attaque + ' ATK',
+            vaisseau_xp : vaisseau.xp + '/' + vaisseau.nextlevel + ' Xp'
+        }
+    );
+
+    return rendered;
+
+	/*return $('<div>')
 		.attr('class', 't-black c-white frame0')
 		.append(
 			$('<div >')
@@ -495,7 +566,7 @@ function vaisseau_mission(vaisseau) {
 					.attr('class', 'icon icon-xp'),
 					$('<div>')
 					.attr('class', 'icon-content2')
-					.html(vaisseau.xp + '/' + vaisseau.nextlevel + ' Xp'))));
+					.html(vaisseau.xp + '/' + vaisseau.nextlevel + ' Xp'))));*/
 }
 
 function chargementSelecteurEquipement() {

@@ -1,4 +1,5 @@
 <?php
+
 $ua = $_SERVER['HTTP_USER_AGENT'];
 if(preg_match("(iPhone|iPod|iPad|BlackBerry|Android|HTC|LG|MOT|Nokia|Palm|SAMSUNG|SonyEricsson|Mobile)",$ua))
 {
@@ -7,8 +8,8 @@ if(preg_match("(iPhone|iPod|iPad|BlackBerry|Android|HTC|LG|MOT|Nokia|Palm|SAMSUN
 }
 
 if (!isset($_SESSION['iduser'])) {
-	header('Location:index.php?page=login');
-	exit();
+    header('Location: index.php?page=login');
+    exit();
 }
 
 require_once(Config::$path['views'].'home.php');

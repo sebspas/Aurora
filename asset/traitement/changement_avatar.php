@@ -29,5 +29,6 @@
 
 	}
 
+	$_SESSION['avatar'] = $image;
 	echo json_encode($return);
 ?>
