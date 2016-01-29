@@ -1,4 +1,3 @@
-
 <!-- Frame Vaisseau Page Home -->
 <script type="x-tmpl-mustache" id="vaisseau-home">
     <div class="cols5">

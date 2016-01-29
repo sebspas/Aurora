@@ -152,6 +152,7 @@ function chargementHomepage() {
 }
 
 function home_ship(vaisseau) {
+
 	var template = $('#vaisseau-home').html();
 	Mustache.parse(template);   // optional, speeds up future uses
 	var rendered = Mustache.render(template,
